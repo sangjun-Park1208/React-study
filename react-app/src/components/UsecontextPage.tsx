@@ -1,15 +1,20 @@
-import React, {useState} from "react";
-import { PageType } from "./Usecontext1";
+import React, {useContext} from "react";
+import ThemeContext from "./context/ThemeContext";
 import UsecontextContent from "./UsecontextContent";
 import UsecontextFooter from "./UsecontextFooter";
 import UsecontextHeader from "./UsecontextHeader";
 
-const UsecontextPage = ({isDark}: {isDark : boolean}, {setIsDark}: {setIsDark:any}) => {
+type Props = {
+    isDark: boolean;
+    setIsDark: (dark: boolean) => void;
+}
+
+const UsecontextPage = () => {
     return (
         <div className="page">
-            <UsecontextHeader isDark={isDark}/>
-            <UsecontextContent isDark={isDark}/>
-            <UsecontextFooter isDark={isDark}/>
+            <UsecontextHeader />
+            <UsecontextContent />
+            <UsecontextFooter />
         </div>
     )
 }

@@ -1,6 +1,19 @@
-import React from "react";
+import React, {useContext} from "react";
+import ThemeContext from "./context/ThemeContext";
+import UserContext from "./context/UserContext";
 
-const UsecontextHeader = ({isDark}) => {
+type Props = {
+    isDark: boolean;
+}
+
+type Props1 = {
+    name: string
+}
+
+const UsecontextHeader = () => {
+    const {isDark} = useContext(ThemeContext);
+    const user: Props1 | JSX.Element = useContext(UserContext);
+    
     return(
         <header
             className="header"
@@ -9,7 +22,9 @@ const UsecontextHeader = ({isDark}) => {
                 color: isDark ? 'while' : 'black',
             }}
         >
-            <h1>Welcom 홍길동!</h1>
+            <>
+                Welcome {user}!
+            </>
         </header>
     );
 };

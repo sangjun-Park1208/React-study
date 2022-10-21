@@ -1,6 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
+import ThemeContext from "./context/ThemeContext";
 
-const UsecontextFooter = ({isDark, setIsDark}) => {
+type Props = {
+    isDark: boolean;
+    setIsDark: (dark: boolean) => void;
+}
+
+const UsecontextFooter = () => {
+    const {isDark, setIsDark} = useContext(ThemeContext);
     const toggleTheme = () => {
         setIsDark(!isDark);
     };
