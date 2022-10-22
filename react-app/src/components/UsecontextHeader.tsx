@@ -22,9 +22,6 @@ const UsecontextHeader = () => {
                 color: isDark ? 'while' : 'black',
             }}
         >
-            <>
-                Welcome {user}!
-            </>
         </header>
     );
 };

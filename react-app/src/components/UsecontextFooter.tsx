@@ -20,7 +20,7 @@ const UsecontextFooter = () => {
             }}
         >
             <button className="button" onClick={toggleTheme}>
-                Dark Mode;
+                Dark Mode
             </button>
 
         </footer>
