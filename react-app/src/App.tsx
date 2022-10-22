@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import Usecallback1 from './components/Usecallback1';
+import Usecallback2 from './components/Usecallback2';
 import Usecontext1 from './components/Usecontext1';
 import Useeffect2 from './components/Useeffect2';
 import Usememo1 from './components/Usememo1';
@@ -12,7 +14,7 @@ function App() {
   
   return (
     <div>
-      <Usememo2 />
+      <Usecallback2 />
     </div>
   )
 }
