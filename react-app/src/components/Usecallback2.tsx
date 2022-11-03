@@ -1,5 +1,6 @@
 import React, {useState, useCallback, useEffect} from "react";
 import Box from "./Box";
+import {motion} from "framer-motion"
 
 const Usecallback2 = () => {
     const [size, setSize] = useState(100);
