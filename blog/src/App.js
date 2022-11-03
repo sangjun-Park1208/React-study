@@ -5,8 +5,11 @@ function App() {
   let [title, setTitle] = useState(['남자 코트 추천', '강남 우동 맛집', '파이썬 독학']);
   let [count, setCount] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
+  let [modalTitle, setModalTitle] = useState('');
+  let [inputVal, setInputVal] = useState('');
 
   let logo = 'React Blog'
+
   return (
     <div className="App">
       <div className="black-nav">
@@ -28,13 +31,26 @@ function App() {
         title.map((d, i)=>{
           return (
             <div className="list" key={i}>
-              <h4 onClick={() => setModal(!modal)}>
+              <h4 onClick={() => {
+                setModal(true);
+                setModalTitle(title[i]);
+              }}>
                 { title[i] }
-                <button onClick={() => {
-                  let tmpCnt = count;
-                  tmpCnt[i] = tmpCnt[i] + 1;
-                  setCount([...tmpCnt]);
-                  }}>👍</button> {count[i]}
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    let tmpCnt = count;
+                    tmpCnt[i] = tmpCnt[i] + 1;
+                    setCount([...tmpCnt]);
+                  }}
+                >
+                  👍
+                </button> {count[i]} 
+                <button 
+                  onClick={()=>{
+
+                  }}
+                >X</button>
               </h4>
               <p>2월 17일 발행</p>
             </div>
@@ -42,8 +58,23 @@ function App() {
         })
       }
 
+      <input
+        onChange={(e)=>{
+          setInputVal(e.target.value);
+          console.log(inputVal);
+        }}
+      />
+      <button 
+        onClick={()=>{
+          setTitle([inputVal, ...title]);
+        }}
+      >글 발행하기</button>
+
+      {/* <select></select>
+      <textarea></textarea> */}
+
       {
-        modal? <Modal setTitle={setTitle} title={title}/> : null
+        modal? <Modal setTitle={setTitle} title={title} modalTitle={modalTitle}/> : null
       }
     </div>
   );
@@ -52,7 +83,7 @@ function App() {
 const Modal = (props) => {
   return (
     <div className="modal">
-      <h4>{props.title}</h4>
+      <h4>{props.modalTitle}</h4>
       <p>날짜</p>
       <p>상세 내용</p>
       <button onClick={()=>{
