@@ -47,8 +47,10 @@ function App() {
                   👍
                 </button> {count[i]} 
                 <button 
-                  onClick={()=>{
-
+                  onClick={(e)=>{
+                    let copy = [...title];
+                    copy.splice(i, 1);
+                    setTitle([...copy])
                   }}
                 >X</button>
               </h4>
